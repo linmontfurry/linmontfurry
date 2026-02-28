@@ -18,7 +18,7 @@
 ---
 
 <div>
-  <p>我会的语言如下</p>
+  <p>我主要会的语言如下</p>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="30" alt="javascript logo"  />
   <img width="10" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="30" alt="typescript logo"  />
@@ -27,6 +27,16 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="30" alt="python logo"  />
   <img width="10" />
 </div>
+
+---
+
+## 技术能力
+
+```text
+Python        ████████████
+JavaScript/TypeScript    ████████
+Go            ████ (正在学习)
+```
 
 ---
 
@@ -40,16 +50,6 @@
     <img src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=linmontfurry&layout=compact&theme=radical" height="150" alt="top languages graph"  />
     <img src="https://github-readme-stats-fast.vercel.app/api/streak?username=linmontfurry&theme=radical" height="150" alt="Streak">
 </div>
-
----
-
-## 我正在掌握的语言
-
-```text
-Python        ████████████
-JavaScript    ████████
-Go            ████ 
-```
 
 ---
 ## 贡献列
