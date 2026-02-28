@@ -45,4 +45,4 @@ Go            ████
 
 <br clear="both">
 
-<img src="https://raw.githubusercontent.com/linmontfurry/linmontfurry/output/snake.svg" alt="Snake animation" />
+<img src="https://raw.githubusercontent.com/linmontfurry/linmontfurry/refs/heads/output/snake.svg" alt="Snake animation" />
