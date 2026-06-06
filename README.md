@@ -54,6 +54,4 @@ Go            ████ (正在学习)
 ---
 ## 贡献列
 
-<br clear="both">
-
-<img src="https://raw.githubusercontent.com/linmontfurry/linmontfurry/refs/heads/output/snake.svg" alt="Snake animation" />
+![snake](https://raw.githubusercontent.com/linmontfurry/linmontfurry/main/public/snake.svg)
