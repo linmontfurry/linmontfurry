@@ -63,8 +63,6 @@ jobs:
       - name: Configure GitHub Pages
         id: pages
         uses: actions/configure-pages@v5
-        with:
-          static_site_generator: next
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -77,6 +75,9 @@ jobs:
 
       - name: Build site
         run: npm run build
+
+      - name: Preserve custom domain
+        run: cp public/CNAME out/CNAME
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
