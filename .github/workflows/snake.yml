@@ -47,6 +47,7 @@ jobs:
     needs: snake
     runs-on: ubuntu-latest
     timeout-minutes: 15
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -57,11 +58,10 @@ jobs:
         with:
           ref: main
 
-      - name: Pull generated snake.svg
+      - name: Pull latest main
         run: git pull --ff-only origin main
 
       - name: Configure GitHub Pages
-        id: pages
         uses: actions/configure-pages@v5
 
       - name: Setup Node.js
@@ -76,8 +76,21 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Preserve custom domain
-        run: cp public/CNAME out/CNAME
+      - name: Prepare Pages output
+        run: |
+          test -d out
+          test -f out/index.html
+
+          if find out -type l -print -quit | grep -q .; then
+            echo "GitHub Pages artifact must not contain symlinks"
+            exit 1
+          fi
+
+          touch out/.nojekyll
+
+          if [ -f public/CNAME ]; then
+            cp public/CNAME out/CNAME
+          fi
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -87,3 +100,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+        with:
+          timeout: 600000
+          error_count: 10
+          reporting_interval: 5000
