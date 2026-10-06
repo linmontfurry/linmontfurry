@@ -15,9 +15,10 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
+  actions: write
 
 jobs:
   snake:
@@ -36,12 +37,12 @@ jobs:
           github_user_name: ${{ github.repository_owner }}
           outputs: public/snake.svg?palette=github-dark
 
-      - name: Commit snake.svg to main
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Upload snake artifact
+        uses: actions/upload-artifact@v4
         with:
-          branch: main
-          commit_message: "chore: generate snake.svg [skip ci]"
-          file_pattern: public/snake.svg
+          name: snake
+          path: public/snake.svg
+          if-no-files-found: error
 
   pages:
     needs: snake
@@ -58,8 +59,11 @@ jobs:
         with:
           ref: main
 
-      - name: Pull latest main
-        run: git pull --ff-only origin main
+      - name: Download generated snake.svg
+        uses: actions/download-artifact@v4
+        with:
+          name: snake
+          path: public
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
@@ -104,3 +108,4 @@ jobs:
           timeout: 600000
           error_count: 10
           reporting_interval: 5000
+
